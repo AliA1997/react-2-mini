@@ -18,6 +18,7 @@ class App extends Component {
       fontFamily: 'monospace',
     }
     this.updateColor = this.updateColor.bind(this);
+    this.updateSize = this.updateSize.bind(this);
   }
   // updateColor
   updateColor(val) {
@@ -36,9 +37,17 @@ class App extends Component {
         fontSize: val,
       }
     })
+    //Only use this if not needing the prevState parameter 
+    //this.setState({stateProperty: newValue })
   }
   // updateFamily
-
+  updateFamily(val) {
+    this.setState(() => {
+      return {
+        fontFamily: val,
+      }
+    })
+  }
   // updateEditStatus
 
   render() {
@@ -50,7 +59,9 @@ class App extends Component {
           { /* Render ColorChanger */ }
           <ColorChanger fontColor={this.state.fontColor} update={this.updateColor} />
           { /* Render SizeChanger */ }
+          <SizeChanger fontSize={this.state.fontSize} update={this.updateSize} />
           { /* Render FamilyChanger */ }
+          <FamilyChanger fontFamily={this.state.fontFamily} update={this.updateFamily} />
         </div>
         <div className="textArea">
           <TextContainer 
