@@ -19,6 +19,7 @@ class App extends Component {
     }
     this.updateColor = this.updateColor.bind(this);
     this.updateSize = this.updateSize.bind(this);
+    this.updateFamily = this.updateFamily.bind(this);
   }
   // updateColor
   updateColor(val) {
@@ -49,7 +50,9 @@ class App extends Component {
     })
   }
   // updateEditStatus
+  updateEditStatus(val) {
 
+  }
   render() {
       //When passing down function no need for a parameter
     return (
