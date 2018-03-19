@@ -20,6 +20,7 @@ class App extends Component {
     this.updateColor = this.updateColor.bind(this);
     this.updateSize = this.updateSize.bind(this);
     this.updateFamily = this.updateFamily.bind(this);
+    this.updateEditStatus = this.updateEditStatus.bind(this);
   }
   // updateColor
   updateColor(val) {
@@ -51,7 +52,11 @@ class App extends Component {
   }
   // updateEditStatus
   updateEditStatus(val) {
-
+    this.setState(() => {
+      return {
+        allowEdit: val,
+      }
+    })
   }
   render() {
       //When passing down function no need for a parameter
@@ -59,11 +64,15 @@ class App extends Component {
       <div>
         <div className="headerBar">
           { /* Render EditToggle */ }
+          <EditToggle allowEdit={this.state.allowEdit} update={this.updateEditStatus}/>
           { /* Render ColorChanger */ }
           <ColorChanger fontColor={this.state.fontColor} update={this.updateColor} />
           { /* Render SizeChanger */ }
-          <SizeChanger fontSize={this.state.fontSize} update={this.updateSize} />
+          <SizeChanger allowEdit={this.state.allowEdit}
+           fontSize={this.state.fontSize}
+           update={this.updateSize} />
           { /* Render FamilyChanger */ }
+
           <FamilyChanger fontFamily={this.state.fontFamily} update={this.updateFamily} />
         </div>
         <div className="textArea">
