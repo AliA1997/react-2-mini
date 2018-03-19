@@ -33,7 +33,7 @@ export default class TextContainer extends Component {
     )
   }
 }
-
-
+//Named export
+//<----export const myValue = 7;
 
 

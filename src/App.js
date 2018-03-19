@@ -17,23 +17,38 @@ class App extends Component {
       fontSize: 12,
       fontFamily: 'monospace',
     }
+    this.updateColor = this.updateColor.bind(this);
   }
   // updateColor
-  updateColor() {
-
+  updateColor(val) {
+    this.setState(() => {
+      return {
+        fontColor: val, 
+      }
+    })
   }
   // updateSize
-
+  updateSize(val) {
+    //When this is undefined by a error.
+    //Bind the function in the constructor function.
+    this.setState(() => {
+      return {
+        fontSize: val,
+      }
+    })
+  }
   // updateFamily
 
   // updateEditStatus
 
   render() {
+      //When passing down function no need for a parameter
     return (
       <div>
         <div className="headerBar">
           { /* Render EditToggle */ }
           { /* Render ColorChanger */ }
+          <ColorChanger fontColor={this.state.fontColor} update={this.updateColor} />
           { /* Render SizeChanger */ }
           { /* Render FamilyChanger */ }
         </div>
