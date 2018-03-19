@@ -9,9 +9,19 @@ import TextContainer from './components/TextContainer';
 
 class App extends Component {
   // constructor
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      allowEdit: true,
+      fontColor: 'black',
+      fontSize: 12,
+      fontFamily: 'monospace',
+    }
+  }
   // updateColor
+  updateColor() {
 
+  }
   // updateSize
 
   // updateFamily
@@ -28,7 +38,11 @@ class App extends Component {
           { /* Render FamilyChanger */ }
         </div>
         <div className="textArea">
-          { /* Render TextContainer */ }
+          <TextContainer 
+          fontColor={this.state.fontColor}
+          fontSize={this.state.fontSize}
+          fontFamily={this.state.fontFamily}
+          />
         </div>
       </div>
     )
